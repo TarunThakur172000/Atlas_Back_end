@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const app = express();
 app.use(cors({
-  origin: "http://localhost:5173", // your React app URL
+  origin: "https://reliable-churros-e1fdd8.netlify.app", // your React app URL
 }));
 
 app.use(express.json());
