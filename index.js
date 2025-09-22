@@ -8,7 +8,11 @@ const movieRoutes = require("./routes/movies");
 const voteRoutes = require("./routes/votes");
 const commentRoutes = require("./routes/comments");
 
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173", // your React app URL
+  credentials: true, // if you send cookies / auth headers
+}));
+
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
