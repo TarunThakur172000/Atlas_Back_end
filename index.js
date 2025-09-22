@@ -3,17 +3,17 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
+app.use(cors({
+  origin: "http://localhost:5173", // your React app URL
+}));
+
+app.use(express.json());
+
 const authRoutes = require("./routes/auth");
 const movieRoutes = require("./routes/movies");
 const voteRoutes = require("./routes/votes");
 const commentRoutes = require("./routes/comments");
 
-app.use(cors({
-  origin: "http://localhost:5173", // your React app URL
-  credentials: true, // if you send cookies / auth headers
-}));
-
-app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/movies", movieRoutes);
